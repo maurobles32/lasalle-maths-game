@@ -110,6 +110,7 @@
 </head>
 <body class="min-h-screen text-slate-800 flex flex-col justify-between">
 
+    <!-- CABECERA SUPERIOR / BARRA DE NAVEGACIÓN -->
     <header class="bg-lasalle-navy text-white shadow-md sticky top-0 z-40">
         <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
             <div class="flex items-center gap-3 cursor-pointer" onclick="switchView('home')">
@@ -143,6 +144,7 @@
         </div>
     </header>
 
+    <!-- BANNER DE NOTIFICACIÓN EN PANTALLA ("CORRECT" / "WRONG") -->
     <div id="toastNotification" class="fixed top-16 left-1/2 -translate-x-1/2 z-50 hidden transition-all duration-300 pointer-events-none">
         <div id="toastInner" class="px-8 py-4 rounded-2xl shadow-2xl font-fredoka text-2xl sm:text-3xl font-extrabold flex items-center gap-3 border-4 tracking-wider animate-pop">
             <span id="toastIcon"></span>
@@ -150,8 +152,10 @@
         </div>
     </div>
 
+    <!-- CONTENEDOR PRINCIPAL -->
     <main class="max-w-6xl mx-auto px-4 py-6 flex-grow w-full">
 
+        <!-- ================= VISTA PRINCIPAL (MENÚ DE INICIO) ================= -->
         <section id="view-home" class="space-y-8">
             <!-- Hero Banner -->
             <div class="bg-gradient-to-br from-lasalle-navy via-lasalle-blue to-blue-700 rounded-3xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden">
@@ -187,6 +191,7 @@
                 </div>
             </div>
 
+            <!-- Tarjetas de Módulos Prácticos -->
             <div>
                 <h3 class="font-fredoka text-2xl font-bold text-slate-800 mb-4 flex items-center gap-2">
                     <i data-lucide="gamepad-2" class="w-6 h-6 text-lasalle-blue"></i> Módulos Prácticos
@@ -276,6 +281,7 @@
             </div>
         </section>
 
+        <!-- ================= MÓDULO 1: PLACE VALUE & WRITING ================= -->
         <section id="view-module1" class="hidden space-y-6">
             <div class="flex flex-col sm:flex-row items-center justify-between bg-white p-4 rounded-2xl border border-slate-200 shadow-sm gap-4">
                 <button onclick="switchView('home')" class="flex items-center gap-2 text-slate-600 hover:text-lasalle-navy font-bold text-sm">
@@ -412,6 +418,7 @@
             </div>
         </section>
 
+        <!-- ================= MÓDULO 2: ORDERING NUMBERS ================= -->
         <section id="view-module2" class="hidden space-y-6">
             <div class="flex items-center justify-between bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
                 <button onclick="switchView('home')" class="flex items-center gap-2 text-slate-600 hover:text-lasalle-navy font-bold text-sm">
@@ -430,7 +437,7 @@
                 <div class="text-center space-y-2">
                     <p class="text-slate-500 font-semibold text-sm">Haz clic en los números en el orden correcto (de **MENOR** a **MAYOR**):</p>
                     <div class="inline-flex items-center gap-2 bg-amber-50 text-amber-800 text-xs font-bold px-3 py-1 rounded-full border border-amber-200">
-                        <i data-lucide="arrow-right-left" class="w-4 h-4"></i> Smallest $\rightarrow$ Greatest
+                        <i data-lucide="arrow-right-left" class="w-4 h-4"></i> Smallest &rarr; Greatest
                     </div>
                 </div>
 
@@ -469,6 +476,7 @@
             </div>
         </section>
 
+        <!-- ================= MÓDULO 3: WORD PROBLEMS ================= -->
         <section id="view-module3" class="hidden space-y-6">
             <div class="flex items-center justify-between bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
                 <button onclick="switchView('home')" class="flex items-center gap-2 text-slate-600 hover:text-lasalle-navy font-bold text-sm">
@@ -518,7 +526,7 @@
                             <span class="text-xs text-slate-600">Subtraction</span>
                         </button>
                         <button onclick="checkStep1Operation('*')" id="op-btn-mul" class="p-4 border-2 border-slate-300 bg-white rounded-2xl font-fredoka font-bold text-base flex flex-col items-center gap-1 hover:border-emerald-500 hover:scale-105 transition-all">
-                            <span class="text-3xl text-amber-600">×</span>
+                            <span class="text-3xl text-amber-600">&times;</span>
                             <span class="text-xs text-slate-600">Multiplication</span>
                         </button>
                     </div>
@@ -580,11 +588,12 @@
                 <p class="text-slate-500">Centro Empresarial de Negocios y Finanzas | Maths Grade 2° (Segundo)</p>
             </div>
             <div class="text-slate-400">
-                <span class="italic">"Be La Salle · Think Globally · Learn for Life"</span>
+                <span class="italic">"Be La Salle &middot; Think Globally &middot; Learn for Life"</span>
             </div>
         </div>
     </footer>
 
+    <!-- MODAL DE SECCIÓN COMPLETADA ("COMPLETE") -->
     <div id="sectionCompleteModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white rounded-3xl max-w-md w-full p-8 text-center shadow-2xl relative space-y-6 animate-pop">
             <div class="w-24 h-24 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-inner border-4 border-emerald-300">
@@ -845,7 +854,7 @@
         ];
         let m1Index = 0;
 
-        // Módulo 1B: Write in Words (Páginas 2 y 3)
+        // Módulo 1B: Write in Words
         const m1WordNumbers = [
             { num: "57,891", text: "Fifty-seven thousand eight hundred ninety-one", words: ["Fifty-seven", "thousand", "eight hundred", "ninety-one"] },
             { num: "45,809", text: "Forty-five thousand eight hundred nine", words: ["Forty-five", "thousand", "eight hundred", "nine"] },
@@ -874,7 +883,7 @@
         let m2Index = 0;
         let m2CurrentSelected = [];
 
-        // Módulo 3 Data (Word Problems con selección de operación y números)
+        // Módulo 3 Data
         const m3Problems = [
             {
                 text: "1. The school library has 54,320 books. It received 11,204 new books. How many books are there now?",
@@ -976,6 +985,7 @@
             }
         }
 
+        // ================= MÓDULO 1 SUBTABS =================
         function switchM1Subtab(tab) {
             playSound('click');
             const btnDigits = document.getElementById('m1-subtab-digits');
@@ -999,6 +1009,7 @@
             lucide.createIcons();
         }
 
+        // --- SUBTAB 1A: DIGITS ---
         function loadModule1DigitsStep() {
             if (m1Index >= m1Numbers.length) {
                 switchM1Subtab('words');
@@ -1111,6 +1122,7 @@
             }
         }
 
+        // --- SUBTAB 1B: WRITE IN WORDS ---
         function loadModule1WordsStep() {
             if (m1bIndex >= m1WordNumbers.length) {
                 completedModules.m1 = true;
@@ -1245,6 +1257,7 @@
             }
         }
 
+        // ================= MÓDULO 2 LOGIC =================
         function loadModule2Step() {
             if (m2Index >= m2Sets.length) {
                 completedModules.m2 = true;
@@ -1352,6 +1365,7 @@
             }
         }
 
+        // ================= MÓDULO 3 LOGIC =================
         function loadModule3Step() {
             if (m3Index >= m3Problems.length) {
                 completedModules.m3 = true;
@@ -1373,13 +1387,13 @@
             m3Step1Passed = false;
             m3SelectedNumbers = [];
 
-            // Resetear estilos de botones de operaciones
+            // Resetear botones
             ['add', 'sub', 'mul'].forEach(op => {
                 const btn = document.getElementById(`op-btn-${op}`);
                 btn.className = 'p-4 border-2 border-slate-300 bg-white rounded-2xl font-fredoka font-bold text-base flex flex-col items-center gap-1 hover:border-emerald-500 hover:scale-105 transition-all';
             });
 
-            // Estado visual de bloqueo del Paso 2
+            // Estado visual de bloqueo
             const step2Container = document.getElementById('m3-step2-container');
             const lockOverlay = document.getElementById('m3-lock-overlay');
             step2Container.classList.add('opacity-40', 'pointer-events-none');
@@ -1392,7 +1406,6 @@
             renderVerticalGrid();
         }
 
-        // VERIFICAR OPERACIÓN SELECCIONADA EN PASO 1
         function checkStep1Operation(selectedOp) {
             const prob = m3Problems[m3Index];
             m3SelectedOp = selectedOp;
@@ -1400,7 +1413,6 @@
             const isCorrectOp = (selectedOp === prob.op);
             showFeedbackToast(isCorrectOp);
 
-            // Resetear botones
             ['add', 'sub', 'mul'].forEach(id => {
                 document.getElementById(`op-btn-${id}`).className = 'p-4 border-2 border-slate-300 bg-white rounded-2xl font-fredoka font-bold text-base flex flex-col items-center gap-1 hover:border-emerald-500 hover:scale-105 transition-all';
             });
@@ -1416,7 +1428,6 @@
                 document.getElementById('m3-op-status').className = 'text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700';
                 document.getElementById('m3-op-status').innerText = 'Correcto ✓';
 
-                // DESBLOQUEAR PASO 2
                 const step2Container = document.getElementById('m3-step2-container');
                 const lockOverlay = document.getElementById('m3-lock-overlay');
                 step2Container.classList.remove('opacity-40', 'pointer-events-none');
@@ -1430,7 +1441,6 @@
                 document.getElementById('m3-op-status').className = 'text-xs font-bold px-2.5 py-1 rounded-full bg-rose-100 text-rose-700';
                 document.getElementById('m3-op-status').innerText = 'Incorrecto ✗';
 
-                // MANTENER BLOQUEADO EL PASO 2
                 const step2Container = document.getElementById('m3-step2-container');
                 const lockOverlay = document.getElementById('m3-lock-overlay');
                 step2Container.classList.add('opacity-40', 'pointer-events-none');
@@ -1525,6 +1535,7 @@
             }
         }
 
+        // ================= CERTIFICATE MODAL =================
         function showCertificateModal() {
             playSound('click');
             const name = studentName || 'Estudiante Lasallista';
